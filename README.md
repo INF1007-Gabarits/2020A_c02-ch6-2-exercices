@@ -16,7 +16,7 @@ Exemple :
 yeet = {
     69: "Yeet",
     420: "YeEt",
-    9000: "YEET",
+    9000: "YEET"
 }
 print(get_even_keys(yeet))
 ```
@@ -34,7 +34,7 @@ Exemple :
 yeet = {
     69: "Yeet",
     420: "YeEt",
-    9000: "YEET",
+    9000: "YEET"
 }
 doot = {
     0xBEEF: "doot",
@@ -56,15 +56,15 @@ Générez un dictionnaire à partir de deux listes, une de clés et une de valeu
 Exemple :
 ```python
 doh = [
-	"D'OH!",
-	"d'oh",
-	"DOH!"
+    "D'OH!",
+    "d'oh",
+    "DOH!"
 ]
 nice = [
-	"NICE!",
-	"nice",
-	"nIcE",
-	"NAIIIIICE!"
+    "NICE!",
+    "nice",
+    "nIcE",
+    "NAIIIIICE!"
 ]
 print(dictionnary_from_lists(doh, nice))
 ```
@@ -81,11 +81,11 @@ Trouvez les *n* (2e paramètre) plus grandes valeurs d'un dictionnaire. Il faut 
 Exemple :
 ```python
 nums = {
-	"nice": 69,
-	"nice bro": 69420,
-	"AGH!": 9000,
-	"dude": 420,
-	"git gud": 1337
+    "nice": 69,
+    "nice bro": 69420,
+    "AGH!": 9000,
+    "dude": 420,
+    "git gud": 1337
 }
 print(get_greatest_values(nums, 1))
 print(get_greatest_values(nums, 3))
@@ -104,18 +104,18 @@ Calculez la somme des valeurs d'une clé donnée dans une liste de dictionnaires
 Exemple :
 ```python
 bro1 = {
-	"money": 12,
-	"problems": 14,
-	"trivago": 1
+    "money": 12,
+    "problems": 14,
+    "trivago": 1
 }
 bro2 = {
-	"money": 56,
-	"problems": 406,
+    "money": 56,
+    "problems": 406
 }
 bro3 = {
-	"money": 1,
-	"chichis": 1,
-	"power-level": 9000
+    "money": 1,
+    "chichis": 1,
+    "power-level": 9000
 }
 print(get_sum_values_from_key([bro1, bro2, bro3], "problems"))
 print(get_sum_values_from_key([bro1, bro2, bro3], "money"))

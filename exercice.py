@@ -27,6 +27,7 @@ def get_greatest_values(dictionnary, num_values):
 def get_sum_values_from_key(dictionnaries, key):
 	return sum([d[key] for d in dictionnaries if key in d])
 
+
 if __name__ == "__main__":
 	yeet = {
 		69: "Yeet",
@@ -81,7 +82,7 @@ if __name__ == "__main__":
 	}
 	bro2 = {
 		"money": 56,
-		"problems": 406,
+		"problems": 406
 	}
 	bro3 = {
 		"money": 1,
