@@ -49,7 +49,7 @@ Résultat :
 ```
 
 ## 3. Dictionnaire à partir de listes
-### `dictionnary_from_lists`
+### `dictionary_from_lists`
 
 Générez un dictionnaire à partir de deux listes, une de clés et une de valeurs. Votre dictionnaire devrait avoir autant d'éléments que la plus petite des deux listes.
 
@@ -66,7 +66,7 @@ nice = [
     "nIcE",
     "NAIIIIICE!"
 ]
-print(dictionnary_from_lists(doh, nice))
+print(dictionary_from_lists(doh, nice))
 ```
 Résultat :
 ```

@@ -62,7 +62,7 @@ class TestExercice(unittest.TestCase):
 			"Mauvaise concaténation de dictionnaires."
 		)
 
-	def test_dictionnary_from_lists(self):
+	def test_dictionary_from_lists(self):
 		values = (
 			[
 				"D'OH!",
@@ -81,7 +81,7 @@ class TestExercice(unittest.TestCase):
 			"d'oh": 'nice',
 			'DOH!': 'nIcE'
 		}
-		output = exercice.dictionnary_from_lists(*values)
+		output = exercice.dictionary_from_lists(*values)
 
 		self.assertEqual(
 			output,

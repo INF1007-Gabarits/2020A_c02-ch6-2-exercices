@@ -13,7 +13,7 @@ def get_even_keys(dictionary):
 def join_dictionaries(dictionaries):
 	return {}
 
-def dictionnary_from_lists(keys, values):
+def dictionary_from_lists(keys, values):
 	return {}
 
 def get_greatest_values(dictionnary, num_values):
@@ -56,7 +56,7 @@ if __name__ == "__main__":
 		"nIcE",
 		"NAIIIIICE!"
 	]
-	print(dictionnary_from_lists(doh, nice))
+	print(dictionary_from_lists(doh, nice))
 	print()
 	
 	nums = {
