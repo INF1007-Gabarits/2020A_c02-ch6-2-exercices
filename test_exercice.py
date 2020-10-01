@@ -9,76 +9,135 @@ import exercice
 
 
 class TestExercice(unittest.TestCase):
-	def test_get_maximums(self):
+	def test_get_even_keys(self):
 		values = [
-			[[1,2,3], [6,5,4], [10,11,12], [8,9,7]]
+			{
+				69: "Yeet",
+				420: "YeEt",
+				9000: "YEET",
+			}
 		]
 		expected = [
-			[3, 6, 12, 9]
+			{9000, 420}
 		]
-		output = [exercice.get_maximums(v) for v in values]
-		self.assertEqual(
-			expected,
-			output,
-			"Mauvais compte de maximums."
-		)
-
-	def test_join_integers(self):
-		values = [
-			[111, 222, 333],
-			[69, 420]
-		]
-		expected = [
-			111222333,
-			69420,
-		]
-		output = [exercice.join_integers(v) for v in values]
+		output = [exercice.get_even_keys(v) for v in values]
 
 		self.assertIs(
 			type(output[0]),
-			int,
-			"Il faut retourner des int"
+			set,
+			"Il faut retourner un set"
 		)
+		self.assertListEqual(
+			expected,
+			output,
+			"Mauvaise extraction de clés paires."
+		)
+
+	def test_join_dictionaries(self):
+		values = [
+			{
+				69: "Yeet",
+				420: "YeEt",
+				9000: "YEET",
+			},
+			{
+				0xBEEF: "doot",
+				0xDEAD: "DOOT",
+				0xBABE: "dOoT"
+			}
+		]
+		expected = {
+			69: 'Yeet',
+			420: 'YeEt',
+			9000: 'YEET',
+			48879: 'doot',
+			57005: 'DOOT',
+			47806: 'dOoT'
+		}
+		output = exercice.join_dictionaries(values)
+
+		self.assertEqual(
+			output,
+			expected,
+			"Mauvaise concaténation de dictionnaires."
+		)
+
+	def test_dictionnary_from_lists(self):
+		values = (
+			[
+				"D'OH!",
+				"d'oh",
+				"DOH!"
+			],
+			[
+				"NICE!",
+				"nice",
+				"nIcE",
+				"NAIIIIICE!"
+			]
+		)
+		expected = {
+			"D'OH!": 'NICE!',
+			"d'oh": 'nice',
+			'DOH!': 'nIcE'
+		}
+		output = exercice.dictionnary_from_lists(*values)
+
+		self.assertEqual(
+			output,
+			expected,
+			"Mauvaise génération de dictionnaires."
+		)
+
+	def test_get_greatest_values(self):
+		values = {
+			"nice": 69,
+			"nice bro": 69420,
+			"AGH!": 9000,
+			"dude": 420,
+			"git gud": 1337
+		}
+		expected = [
+			[69420],
+			[69420, 9000, 1337]
+		]
+		output = [exercice.get_greatest_values(values, n) for n in (1, 3)]
+
 		self.assertListEqual(
 			output,
 			expected,
-			"Mauvaise concaténation"
+			"Mauvaises valeurs maximales."
 		)
 
-	def test_generate_prime_numbers(self):
+	def test_get_sum_values_from_key(self):
+		
 		values = [
-			2,
-			17,
+			{
+				"money": 12,
+				"problems": 14,
+				"trivago": 1
+			},
+			{
+				"money": 56,
+				"problems": 406,
+			},
+			{
+				"money": 1,
+				"chichis": 1,
+				"power-level": 9000
+			}
 		]
 		expected = [
-			[2],
-			[2, 3, 5, 7, 11, 13, 17]
+			420,
+			69
 		]
-		output = [exercice.generate_prime_numbers(v) for v in values]
+		output = [exercice.get_sum_values_from_key(values, k) for k in ("problems", "money")]
 
 		self.assertListEqual(
 			output,
 			expected,
-			"Mauvaise génération de nombres premiers"
+			"Mauvaises sommes."
 		)
-
-	def test_combine_strings_and_numbers(self):
-		values = [
-			(["A", "B"], 2, None),
-			(["A", "B"], 5, 2)
-		]
-		expected = [
-			['A1', 'B1', 'A2', 'B2'],
-			['A1', 'B1', 'A3', 'B3', 'A5', 'B5']
-		]
-		output = [exercice.combine_strings_and_numbers(*v) for v in values]
-
-		self.assertListEqual(
-			output,
-			expected,
-			"Mauvaise génération de nombres premiers"
-		)
-
 
 if __name__ == '__main__':
 	if not os.path.exists('logs'):
