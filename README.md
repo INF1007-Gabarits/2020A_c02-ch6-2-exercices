@@ -4,84 +4,125 @@
 
 Avant de commencer. Consulter les instructions à suivre dans [instructions.md](instructions.md)
 
-À moins d'indications contraires, vous devez retourner les résultats des fonctions, pas les afficher directement.
+À moins d'indications contraires, vous devez retourner les résultats des fonctions, pas les afficher directement. Vous devez au possible faire les numéros en une seule instruction `return` (à moins d'avis contraire).
 
-## 1. Maximums d'une liste de listes
-### `get_maximums`
+## 1. Clés paires d'un dictionnaire
+### `get_even_keys`
 
-Générez la liste des maximums d'une liste de listes de nombres. On veut donc le maximum de chacune des listes.
-
-Exemple :
-```python
-print(get_maximums([[1,2,3], [6,5,4], [10,11,12], [8,9,7]]))
-```
-Résultat :
-```
-[3, 6, 12, 9]
-```
-## 2. Concaténation de nombres
-### `join_integers`
-
-Concaténez une liste d'entiers naturels en un seul nombre. Le type retourné doit être un entier, pas une string, et la fonction doit être faite en une seule expression (une seule ligne qui est le `return`). Vous pouvez faire des conversions de string/entiers.
+Extrayez sous forme d'ensemble (`set`) les clés paires d'un dictionnaire.
 
 Exemple :
 ```python
-print(join_integers([111, 222, 333]))
-print(join_integers([69, 420]))
+yeet = {
+    69: "Yeet",
+    420: "YeEt",
+    9000: "YEET",
+}
+print(get_even_keys(yeet))
 ```
 Résultat :
 ```
-111222333
-69420
+{9000, 420}
 ```
+## 2. Concaténation de dictionnaires
+### `join_dictionaries`
 
-## 3. Crible d'Ératosthène
-### `generate_prime_numbers`
-
-Générez la liste des nombres premiers jusqu'à un certain nombre en suivant le crible d'Ératosthène (https://fr.wikipedia.org/wiki/Crible_d%27%C3%89ratosth%C3%A8ne). Voici l'agorithme en pseudo-code :
-```
-FONCTION Eratosthène(limite)
-    premiers = liste vide
-    nombres = liste des entiers de 2 à limite
-    TANT QUE nombres est non vide FAIRE
-        Ajouter à premiers le premier entier de nombres
-        nombres = liste des entiers de nombres non multiples du premier
-    RÉSULTAT premiers
-```
+Concaténez une liste de dictionnaires en un seul dictionnaire.
 
 Exemple :
 ```python
-print(generate_prime_numbers(17))
+yeet = {
+    69: "Yeet",
+    420: "YeEt",
+    9000: "YEET",
+}
+doot = {
+    0xBEEF: "doot",
+    0xDEAD: "DOOT",
+    0xBABE: "dOoT"
+}
+print(join_dictionaries([yeet, doot]))
 ```
 Résultat :
 ```
-[2, 3, 5, 7, 11, 13, 17]
+{69: 'Yeet', 420: 'YeEt', 9000: 'YEET', 48879: 'doot', 57005: 'DOOT', 47806: 'dOoT'}
 ```
 
-Notez que la borne supérieure (si elle première) est incluse dans le résultat.
+## 3. Dictionnaire à partir de listes
+### `dictionnary_from_lists`
 
-## 4. Combinaisons de strings et de nombres
-### `combine_strings_and_numbers`
+Générez un dictionnaire à partir de deux listes, une de clés et une de valeurs. Votre dictionnaire devrait avoir autant d'éléments que la plus petite des deux listes.
 
-Générez une liste en concaténant les éléments d'une liste de string (1er param) et les nombres de 1 à n (2e param). Vous devez exclure les multiples d'un certain nombre (3e param). Si ce troisième paramètre est `None`, alors on n'exclut rien.
-
-Exemple:
+Exemple :
 ```python
-print(combine_strings_and_numbers(["A", "B"], 2, None))
-print(combine_strings_and_numbers(["A", "B"], 5, 2))
+doh = [
+	"D'OH!",
+	"d'oh",
+	"DOH!"
+]
+nice = [
+	"NICE!",
+	"nice",
+	"nIcE",
+	"NAIIIIICE!"
+]
+print(dictionnary_from_lists(doh, nice))
 ```
 Résultat :
 ```
-['A1', 'B1', 'A2', 'B2']
-['A1', 'B1', 'A3', 'B3', 'A5', 'B5']
+{"D'OH!": 'NICE!', "d'oh": 'nice', 'DOH!': 'nIcE'}
 ```
 
-Notez que dans le deuxième exemple la valeur 5 est incluse et que les multiples de 2 (2 et 4) sont exclus. Notez aussi l'ordre A1 B1 puis A2 B2. On génère toutes les combinaisons pour un nombre avant de passé au prochain. On ne veut pas A1 A2 puis B1 B2.
+## 4. Plus grandes valeurs d'un dictionnaire
+### `get_greatest_values`
 
-## Conseils et ressources
+Trouvez les *n* (2e paramètre) plus grandes valeurs d'un dictionnaire. Il faut les retourner sous forme d'une liste décroissante.
 
-`len()` : https://docs.python.org/3/library/functions.html?highlight=len#len
+Exemple :
+```python
+nums = {
+	"nice": 69,
+	"nice bro": 69420,
+	"AGH!": 9000,
+	"dude": 420,
+	"git gud": 1337
+}
+print(get_greatest_values(nums, 1))
+print(get_greatest_values(nums, 3))
+```
+Résultat :
+```
+[69420]
+[69420, 9000, 1337]
+```
 
-`str.join()` : https://docs.python.org/3/library/stdtypes.html?highlight=join#str.join
+## 5. Somme des valeurs dans une liste de dictionnaires
+### `get_sum_values_from_key`
 
-`max()` : https://docs.python.org/3/library/functions.html?highlight=max#max
+Calculez la somme des valeurs d'une clé donnée dans une liste de dictionnaires.
+
+Exemple :
+```python
+bro1 = {
+	"money": 12,
+	"problems": 14,
+	"trivago": 1
+}
+bro2 = {
+	"money": 56,
+	"problems": 406,
+}
+bro3 = {
+	"money": 1,
+	"chichis": 1,
+	"power-level": 9000
+}
+print(get_sum_values_from_key([bro1, bro2, bro3], "problems"))
+print(get_sum_values_from_key([bro1, bro2, bro3], "money"))
+
+```
+Résultat :
+```
+420
+69
+```
